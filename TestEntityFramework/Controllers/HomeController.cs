@@ -63,7 +63,7 @@ namespace TestEntityFramework.Controllers
             return View("CustomersView");
         }
 
-        public ActionResult ListCustomersBySearch(string input)
+        public ActionResult ListCustomersBySearch(string SearchID)
         {
             NorthwindEntities ORM = new NorthwindEntities();
 
@@ -71,7 +71,7 @@ namespace TestEntityFramework.Controllers
 
             foreach (Customer CustomerRecord in ORM.Customers.ToList())
             {
-                if (CustomerRecord.CustomerID.ToLower().Contains(input.ToLower()))
+                if (CustomerRecord.CustomerID.ToLower().Contains(SearchID.ToLower()))
                 {
                     OutputList.Add(CustomerRecord);
                 }
